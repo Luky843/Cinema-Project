@@ -1,0 +1,32 @@
+
+function displayErrMsg(elm, msg) { //elm = element name; msg = message whitch will dysplayed; (all string type)
+    document.getElementById(elm).innerHTML = msg;
+    document.getElementById(elm).style.color = "red";
+    document.getElementById(elm).style.display = "block";
+}
+
+function displaySccsMsg(elm, msg) { //elm = element name; msg = message whitch will dysplayed; (all string type)
+    document.getElementById(elm).innerHTML = msg;
+    document.getElementById(elm).style.color = "green";
+    document.getElementById(elm).style.display = "block";
+}
+
+
+//Validator
+function Valid() {
+    var user = document.getElementById("user").value;
+    var password = document.getElementById("pss").value;
+
+    if (user == "admin" || user == "Admin") {
+        if (password == "1234") {
+            displaySccsMsg("er1", 'Login successful!');
+            $(document).ready(function () {
+                window.setTimeout(function () { window.location.href = "cinema/index.html" }, 500);
+            });
+            return true;
+        }
+    }
+    displayErrMsg("er1",'Incorrect username or password!');
+    return false;
+
+}
