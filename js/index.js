@@ -17,7 +17,7 @@ function Valid() {
     var user = document.getElementById("user").value;
     var password = document.getElementById("pss").value;
 
-    if (user == "admin" || user == "Admin") {
+   /* if (user == "admin" || user == "Admin") {
         if (password == "1234") {
             displaySccsMsg("er1", 'Login successful!');
             $(document).ready(function () {
@@ -25,8 +25,28 @@ function Valid() {
             });
             return true;
         }
+    }*/
+    if (user == "" || password == "") {
+        displayErrMsg("er1", 'Password and username are mandatory!');
+    } else {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                 if (this.response == "-1") {
+                     displayErrMsg("er1", 'Incorrect username or password!');
+                 } else {
+                     displaySccsMsg("er1", 'Login successful!');
+                     $(document).ready(function () {
+                         window.setTimeout(function () { window.location.href = "cinema/index.html" }, 500);
+                     });
+                 }
+            }
+            // console.log(url);
+        };
+        var url = "http://localhost/cinema/autorization.php?name=" + user + "&password=" + password;
+        xhttp.open("GET", url, true);
+        xhttp.send();
+        
+        return false;
     }
-    displayErrMsg("er1",'Incorrect username or password!');
-    return false;
-
 }
