@@ -32,14 +32,22 @@ function Valid() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                 if (this.response == "-1") {
+				if(this.response == ""){
+					 displayErrMsg("er1", 'server.error');
+					 return;
+				}
+				var res = this.response;
+				res = res.split("##");
+				res = res[res.length -1];
+				
+                if (res == "-1") {
                      displayErrMsg("er1", 'Incorrect username or password!');
-                 } else {
+                } else {
                      displaySccsMsg("er1", 'Login successful!');
                      $(document).ready(function () {
                          window.setTimeout(function () { window.location.href = "cinema/index.html" }, 500);
                      });
-                 }
+                }
             }
             // console.log(url);
         };
