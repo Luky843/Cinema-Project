@@ -13,7 +13,7 @@
 		return $x;
 	}
 	
-	function generateRandomString($length = 10) {
+	function generateRandomString($length = 20) {
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$charactersLength = strlen($characters);
 		$randomString = '';
@@ -22,6 +22,22 @@
 		}
 		return $randomString;
 	}
+	
+	function isTokenUnique($token)
+	{
+		$db_cr = get_DB_config();
+		$conn = new mysqli($db_cr[0],$db_cr[1],$db_cr[2],$db_cr[3]);
+		$sql = "select * from token where value_ like '".$token."';";
+		$result = $conn->query($sql);
+		if($result->num_rows > 0)
+		{
+			$conn->close();
+			return 0;
+		}
+		$conn->close();
+		return 1;
+	}
+		
 	
 	function validate_autorization()
 	{
@@ -41,7 +57,11 @@
 				$GLOBALS["user_id"] = $rws["idu"];
 				$GLOBALS["isAdmin"] = $rws["isAdmin"];
 			}
-			$output = generateRandomString();
+			do {
+				$output = generateRandomString();
+				$t = isTokenUnique($output);
+			}while($t == 0);
+			//$output = generateRandomString();
 		}
 		$conn->close();
 		return $output;

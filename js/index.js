@@ -43,6 +43,7 @@ function Valid() {
                 if (res == "-1") {
                      displayErrMsg("er1", 'Incorrect username or password!');
                 } else {
+                     sessionStorage.setItem("token", res);
                      displaySccsMsg("er1", 'Login successful!');
                      $(document).ready(function () {
                          window.setTimeout(function () { window.location.href = "cinema/index.html" }, 500);
@@ -51,7 +52,7 @@ function Valid() {
             }
             // console.log(url);
         };
-        var url = "http://localhost/cinema/autorization.php?name=" + user + "&password=" + password;
+        var url = "http://localhost/cinema/cinema/autorization.php?name=" + user + "&password=" + password;
         xhttp.open("GET", url, true);
         xhttp.send();
         
