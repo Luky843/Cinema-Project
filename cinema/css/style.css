@@ -8,6 +8,22 @@ body {
     font-family: 'Oxygen', sans-serif;
 }
 
+.volne{
+    background-image: url("../img/seats/boxgray2.png");
+}
+.obsadene{
+    background-image: url("../img/seats/boxred1.png");
+}
+
+.moje{
+    background-image: url("../img/seats/boxblue1.png");
+}
+
+td{
+    height: 20px;
+    width: 20px;
+}
+
 a:hover {
 cursor:pointer;
 text-decoration:none
