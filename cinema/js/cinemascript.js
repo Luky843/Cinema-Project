@@ -1,4 +1,4 @@
-// JavaScript source code
+﻿// JavaScript source code
 charset = "utf-8";
 var filmID = 1;
 
@@ -17,14 +17,18 @@ function zmen(img_object,seatID) {
                 img_object.src = "./img/seats/boxgray2.png";
             }
             if (res == "NONE") {
-                alert("nemas opravnenie");
+                document.getElementById("error").innerHTML = "Vami vybrané sedadlo je rezervované!";
+                setTimeout(function (){
+                    document.getElementById("error").innerHTML = "";
+                }, 2 * 1000);
             }
         }
     };
-    var url = "http://localhost/cinema/cinema/change_seat_status.php?token=" + token + "&movie=" + filmID + "&seat=" + seatID;
+    var url = "http://ltscinema.wz.sk/cinema/change_seat_status.php?token=" + token + "&movie=" + filmID + "&seat=" + seatID;
     xhttp.open("GET", url, true);
     xhttp.send();
 }
+
 /*
 function init() {
     var film = document.getElementById("combo").options[combo.selectedIndex].value;
@@ -62,22 +66,21 @@ function init() {
 
 }*/
 
-
 function showAvailability(res) {
-	var free = 0;
-	var sold = 0;
-	var ureservation = 0;
-	for (var i = 0;i<res.length;i++){
-		if (res[i] == 1)
-			free++;
-		if(res[i] == 2)
-			sold++;
-		if(res[i] == 3)
-			ureservation++;
-	}
-	document.getElementById("free").innerHTML = free;
-	document.getElementById("sold").innerHTML = sold;
-	document.getElementById("ureservation").innerHTML = ureservation;
+    var free = 0;
+    var sold = 0;
+    var urreservation = 0;
+    for (var i = 0; i < res.length; i++) {
+        if (res[i] == 1)
+            free++;
+        if (res[i] == 2)
+            sold++;
+        if (res[i] == 3)
+            urreservation++;
+    }
+    document.getElementById("free").innerHTML = free;
+    document.getElementById("sold").innerHTML = sold;
+    document.getElementById("urreservation").innerHTML = urreservation;
 }
 
 function showMovie(movie_id) {
@@ -107,9 +110,15 @@ function showMovie(movie_id) {
                     document.getElementById(id).src = "./img/seats/boxblue1.png";
                 }
             }
+            showAvailability(res);
         }
     };
-    var url = "http://localhost/cinema/cinema/get_list_of_seats.php?token=" + token + "&movie=" + movie_id;
+    var url = "http://ltscinema.wz.sk/cinema/get_list_of_seats.php?token=" + token + "&movie=" + movie_id;
     xhttp.open("GET", url, true);
     xhttp.send();
+}
+
+function Logout() {
+    sessionStorage.setItem("token", "");
+    window.location = "http://ltscinema.wz.sk/";
 }
