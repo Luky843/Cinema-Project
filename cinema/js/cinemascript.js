@@ -27,7 +27,7 @@ function zmen(img_object,seatID) {
                 img_object.src = "./img/seats/boxgray2.png";
             }
             if (res == "NONE") {
-                document.getElementById("error").innerHTML = "Vami vybrané sedadlo je rezervované!";
+                document.getElementById("error").innerHTML = "This seat is already reserved!";
                 setTimeout(function (){
                     document.getElementById("error").innerHTML = "";
                 }, 2 * 1000);
