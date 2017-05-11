@@ -2,6 +2,16 @@
 charset = "utf-8";
 var filmID = 1;
 
+function loggedUser() {
+    var token = sessionStorage.getItem("token");
+    if (token == "" || token == undefined || token == null) {
+        document.getElementById("state").innerHTML = "Log in";
+    }
+    else {
+        document.getElementById("state").innerHTML = "Log out";
+    }
+}
+
 function zmen(img_object,seatID) {
     token = sessionStorage.getItem("token");
     var xhttp = new XMLHttpRequest();
