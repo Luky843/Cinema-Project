@@ -137,7 +137,11 @@
                                     <td style="border-top:0;"><img class="cinemaseat" src="img/seats/boxgray2.png" id="t21"  onclick="zmen(this,21)"/><img class="cinemaseat" src="img/seats/boxgray2.png" id="t22"  onclick="zmen(this,22)"/><img class="cinemaseat" src="img/seats/boxgray2.png" id="t23"  onclick="zmen(this,23)"/><img class="cinemaseat" src="img/seats/boxgray2.png" id="t24"  onclick="zmen(this,24)"/><img class="cinemaseat" src="img/seats/boxgray2.png" id="t25"  onclick="zmen(this,25)"/><img class="cinemaseat" src="img/seats/boxgray2.png" id="t26"  onclick="zmen(this,26)"/><img class="cinemaseat" src="img/seats/boxgray2.png" id="t27"  onclick="zmen(this,27)"/><img class="cinemaseat" src="img/seats/boxgray2.png" id="t28"  onclick="zmen(this,28)"/><img class="cinemaseat" src="img/seats/boxgray2.png" id="t29"  onclick="zmen(this,29)"/><img class="cinemaseat" src="img/seats/boxgray2.png" id="t30"  onclick="zmen(this,30)"/></td>
                                 </tr>
                                 <tr>
-                                    <td><img class="cinemaseat" src="img/seats/boxgray2.png"> Voľné (<p id="free" showAvailability(free)></p>) <img style="padding-left:20px;" class="cinemaseat" src="img/seats/boxred1.png" /> Predané (<p id="sold" showAvailability(sold)></p>) <img style="padding-left:20px;" class="cinemaseat" src="img/seats/boxblue1.png"> Vaša rezervácia (<p id="urreservation" showAvailability(urreservation)></p>) </td>
+                                    <td>
+                                    	<img class="cinemaseat" src="img/seats/boxgray2.png"> 								Voľné ( <span id="free" function="showAvailability(free)"></span> )
+                                    	<img style="padding-left:20px;" class="cinemaseat" src="img/seats/boxred1.png" /> 	Predané ( <span id="sold" function="showAvailability(sold)"></span> )
+                                    	<img style="padding-left:20px;" class="cinemaseat" src="img/seats/boxblue1.png"> 	Vaša rezervácia ( <span id="urreservation" function="showAvailability(urreservation)"></span> )
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
