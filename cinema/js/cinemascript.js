@@ -62,30 +62,22 @@ function init() {
 
 }*/
 
-function showAvailability(res) {
-	free = $free;
-	sold = $sold;
-	urreservation = $urreservation;
 
-	$i = 0;
-	while ($res[$i]) {
-		if (res == 1) {
+function showAvailability(res) {
+	var free = 0;
+	var sold = 0;
+	var ureservation = 0;
+	for (var i = 0;i<res.length;i++){
+		if (res[i] == 1)
 			free++;
-			$res[$i++]." ";
-		}
-		if (res == 2) {
+		if(res[i] == 2)
 			sold++;
-			$res[$i++]." ";
-		}
-		if (res == 3) {
-			urreservation++;
-			$res[$i++]." ";
-		}
+		if(res[i] == 3)
+			ureservation++;
 	}
-/*	echo $free;
-	echo $sold;
-	echo $urreservation;
-*/
+	document.getElementById("free").innerHTML = free;
+	document.getElementById("sold").innerHTML = sold;
+	document.getElementById("ureservation").innerHTML = ureservation;
 }
 
 function showMovie(movie_id) {
