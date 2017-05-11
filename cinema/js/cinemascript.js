@@ -76,15 +76,15 @@ function showMovie(movie_id) {
             for (var i = 0; i < 30; i++) {
                 id = "t" + (i + 1);
 
-                if (res[i] == "1") {
+                if (res[i] == 1) {
                     // console.log(id + " " + res[i]);
                     document.getElementById(id).src = "./img/seats/boxgray2.png";
                 }
-                if (res[i] == "2") {
+                if (res[i] == 2) {
                     // console.log(id + " " + res[i]);
                     document.getElementById(id).src = "./img/seats/boxred1.png";
                 }
-                if (res[i] == "3") {
+                if (res[i] == 3) {
                     // console.log(id + " " + res[i]);
                     document.getElementById(id).src = "./img/seats/boxblue1.png";
                 }
