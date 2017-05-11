@@ -62,6 +62,32 @@ function init() {
 
 }*/
 
+function showAvailability(res) {
+	free = $free;
+	sold = $sold;
+	urreservation = $urreservation;
+
+	$i = 0;
+	while ($res[$i]) {
+		if (res == 1) {
+			free++;
+			$res[$i++]." ";
+		}
+		if (res == 2) {
+			sold++;
+			$res[$i++]." ";
+		}
+		if (res == 3) {
+			urreservation++;
+			$res[$i++]." ";
+		}
+	}
+/*	echo $free;
+	echo $sold;
+	echo $urreservation;
+*/
+}
+
 function showMovie(movie_id) {
     filmID = movie_id;
     token = sessionStorage.getItem("token");
