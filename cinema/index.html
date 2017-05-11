@@ -18,7 +18,7 @@
     <title>Home</title>
     
 </head>
-<body ondragstart="return false;" ondrop="return false;">      
+<body ondragstart="return false;" ondrop="return false;" onload="loggedUser()">      
     <div class="row">  
         <div class="col-lg-12"> 
             <nav class="navbar navbar-inverse">
@@ -41,7 +41,7 @@
                             <li><a href="#about">About us</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a onclick="Logout()">Log out <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                            <li><a onclick="Logout()"><span id="state"></span> <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
